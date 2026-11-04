@@ -8,7 +8,7 @@ public record Student(String name, int id, LocalDate birthDate) {
         return toYears(LocalDate.now().toEpochDay() - birthDate.toEpochDay());
     }
 
-    public static final int DAYS_TO_YEAR = 365;
+    private static final int DAYS_TO_YEAR = 365;
 
     private int toYears(long days) {
         return (int) (days / DAYS_TO_YEAR);
