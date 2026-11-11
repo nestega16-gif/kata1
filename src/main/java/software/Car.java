@@ -11,7 +11,13 @@ public class Car {
         this.purchaseDate = purchaseDate;
     }
 
+    public long yearsFromPurchase(){
+        return toYear(purchaseDate.toEpochDay() - purchaseDate.toEpochDay());
+    }
 
+    private long toYear(long days) {
+        return days/365;
+    }
 
 
 }
