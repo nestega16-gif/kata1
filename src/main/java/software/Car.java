@@ -8,10 +8,10 @@ public record Car(String branch, LocalDate purchaseDate) {
         return toYear(LocalDate.now().toEpochDay() - purchaseDate.toEpochDay());
     }
 
-    public static final int DAYS_PER_YEAR = 365;
+    public static final double DAYS_PER_YEAR = 365.25;
 
     private long toYear(long days) {
-        return days / DAYS_PER_YEAR;
+        return (long) ((long) days / DAYS_PER_YEAR);
     }
 
 
