@@ -2,21 +2,16 @@ package software;
 
 import java.time.LocalDate;
 
-public class Car {
-    private final String name;
-    private final LocalDate purchaseDate;
+public record Car(String branch, LocalDate purchaseDate) {
 
-    public Car(String name, LocalDate purchaseDate) {
-        this.name = name;
-        this.purchaseDate = purchaseDate;
+    public long yearsFromPurchase() {
+        return toYear(LocalDate.now().toEpochDay() - purchaseDate.toEpochDay());
     }
 
-    public long yearsFromPurchase(){
-        return toYear(purchaseDate.toEpochDay() - purchaseDate.toEpochDay());
-    }
+    public static final int DAYS_PER_YEAR = 365;
 
     private long toYear(long days) {
-        return days/365;
+        return days / DAYS_PER_YEAR;
     }
 
 
